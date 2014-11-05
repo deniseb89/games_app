@@ -1,0 +1,22 @@
+body{
+	font-family: 'Short Stack', cursive;
+	font-size: 200%;
+}
+
+h1 {
+	text-align: center;
+}
+
+#board {
+	height: 509px;
+	width: 509px;
+	margin: 0 auto;
+}
+
+button {
+	padding: none;
+	margin: none;
+	height: 155px;
+	width: 155px;
+	border: none;
+}
