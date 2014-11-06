@@ -2,14 +2,24 @@
 	TIC-TAC-TOE
 </h1>
 
-<div id="board">
-	<input type="button" id="btn1" />	
-	<input type="button" id="btn2" />	
-	<input type="button" id="btn3" />	
-	<input type="button" id="btn4" />	
-	<input type="button" id="btn5" />	
-	<input type="button" id="btn6" />	
-	<input type="button" id="btn7" />	
-	<input type="button" id="btn8" />	
-	<input type="button" id="btn9" />	
-</div>
+<div id="message"></div>
+
+<table>
+	<tr>
+		<td id="btn1" onclick="nextMove(this);"></td>
+		<td id="btn2" onclick="nextMove(this);"></td>
+		<td id="btn3" onclick="nextMove(this);"></td>
+	</tr>
+	<tr>
+		<td id="btn4" onclick="nextMove(this);"></td>
+		<td id="btn5" onclick="nextMove(this);"></td>
+		<td id="btn6" onclick="nextMove(this);"></td>
+	</tr>
+	<tr>
+		<td id="btn7" onclick="nextMove(this);"></td>
+		<td id="btn8" onclick="nextMove(this);"></td>
+		<td id="btn9" onclick="nextMove(this);"></td>
+	</tr>
+</table>
+
+<a href="javascript:startGame();">Reset</a>

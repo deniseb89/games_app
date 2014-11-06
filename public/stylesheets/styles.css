@@ -1,10 +1,10 @@
 body{
 	font-family: 'Short Stack', cursive;
 	font-size: 200%;
+  text-align: center;
 }
 
 h1 {
-	text-align: center;
 }
 
 #board {
@@ -13,10 +13,21 @@ h1 {
 	margin: 0 auto;
 }
 
-input {
-	padding: 0;
-	margin: 0;
+button {
 	height: 155px;
 	width: 155px;
 	border: none;
+	font-size: 70px;
 }
+
+table{
+  margin: 0 auto;
+}
+
+td{
+	border: 1px solid black;
+  width: 155px;
+  height: 155px;
+  font-size: 70px;
+}
+
