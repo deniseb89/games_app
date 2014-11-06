@@ -13,9 +13,9 @@ h1 {
 	margin: 0 auto;
 }
 
-button {
-	padding: none;
-	margin: none;
+input {
+	padding: 0;
+	margin: 0;
 	height: 155px;
 	width: 155px;
 	border: none;
