@@ -1,74 +1,76 @@
-function startGame(){
-  for (var i = 1; i <= 9; i + 1){
+function startGame() {
+  for (var i = 1; i <= 9; i ++) {
     clearBox(i);
   }
-  document.turn = "X";
-  if (Math.random() < 0.5){
-    document.turn = "O";
+  turn = "X";
+  if (Math.random() < 0.5) {
+    turn = "O";
   }
-  document.winner = null;
-  setMessage(document.turn + " gets to start.");
+  winner = null;
+  setMessage(turn + " gets to start.");
 }
 
-function setMessage(msg){
-  document.getElementById("message").innerHTML = msg;
+function setMessage(msg) {
+  $('#message').text(msg);
 }
 
-$(function(){
-  startGame();
-});
-
-function nextMove(td){
-  if (document.winner != null) {
-    setMessage(document.winner + " already won the game.");
-  } else if(td.innerHTML == ""){
-    td.innerHTML = document.turn;
-    switchTurn();
+function nextMove(td) {
+  if (winner != null) {
+    setMessage(winner+" already won the game.");
+  } else if (td.innerHTML == "") {
+  td.innerHTML = turn;
+  switchTurn();
   } else {
     setMessage("That square has already moved.");
   }
 }
 
-function switchTurn(){
-  if (winner(document.turn)){
-    setMessage("Congratulations, " + document.turn + "! You win!");
-    document.winner = document.turn;
-  } else if (document.turn == "X"){
-    document.turn = "O";
-    setMessage("It's " + document.turn + "'s turn!");
+function switchTurn() {
+  if (checkForWinner(turn)) {
+    setMessage("Congratulations, "+turn+"! You win!");
+    winner = turn;
+  } else if (turn == "X") {
+    turn = "O";
+    setMessage("It's "+turn+"'s turn!");
   } else {
-    document.turn = "X";
-    setMessage("It's " + document.turn + "'s turn!");
+    turn = "X";
+    setMessage("It's "+turn+"'s turn!");
   }
 }
 
-function winner(move){
+function checkForWinner(move) {
   var result = false;
-  if(checkRow(1, 2, 3, move) || 
-     checkRow(4, 5, 6, move) || 
-     checkRow(7, 8, 9, move) ||
-     checkRow(1, 4, 7, move) ||
-     checkRow(2, 5, 8, move) ||
-     checkRow(3, 6, 9, move) ||
-     checkRow(1, 5, 9, move) ||
-     checkRow(3, 5, 7, move)) {
+  if (checkRow(1, 2, 3, move) ||
+      checkRow(4, 5, 6, move) ||
+      checkRow(7, 8, 9, move) ||
+      checkRow(1, 4, 7, move) ||
+      checkRow(2, 5, 8, move) ||
+      checkRow(3, 6, 9, move) ||
+      checkRow(1, 5, 9, move) ||
+      checkRow(3, 5, 7, move)) {
     result = true;
   }
   return result;
 }
 
-function checkRow(a, b, c, move){
+function checkRow(a, b, c, move) {
   var result = false;
-  if(getBox(a) == move && getBox(b) == move && getBox(c) == move){
+  if (getBox(a) == move &&
+      getBox(b) == move &&
+      getBox(c) == move) {
     result = true;
   }
-  // return result;
+  return result;
 }
 
-function getBox(number) {
-  return document.getElementById("btn" + number).innerHTML;
+function getBox(num) {
+  return document.getElementById("btn"+num).innerHTML;
 }
 
-function clearBox(number){
-  document.getElementById("btn" + number).innerHTML = "";
+function clearBox(num) {
+  document.getElementById("btn"+num).innerHTML = "";
 }
+
+$(function(){
+  startGame();
+})

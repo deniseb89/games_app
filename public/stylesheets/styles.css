@@ -7,7 +7,7 @@ body{
 h1 {
 }
 
-#board {
+table {
 	height: 509px;
 	width: 509px;
 	margin: 0 auto;
@@ -20,14 +20,11 @@ button {
 	font-size: 70px;
 }
 
-table{
-  margin: 0 auto;
-}
-
 td{
 	border: 1px solid black;
   width: 155px;
   height: 155px;
   font-size: 70px;
+  font-weight: bold;
 }
 
