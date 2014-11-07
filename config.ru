@@ -7,3 +7,5 @@ Dir.glob('./{helpers,models,controllers}/*.rb').each do |file|
 end
 
 map('/'){run ApplicationController}
+map('/api/hangman'){run HangmanController}
+map('/tictactoe'){run TicTacToeController}
