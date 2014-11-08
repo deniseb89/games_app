@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20141107175503) do
     t.integer  "remaining_tries"
     t.integer  "wins"
     t.integer  "losses"
+    t.string   "bad_guesses"
+    t.string   "game_state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

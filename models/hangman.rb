@@ -1,22 +1,19 @@
 class Hangman < ActiveRecord::Base
-	def initialize(word)
-		@guessed_letters = []
-	end
-	def guess_letter(letter_guessed)
-		word.chars.gsub("", "_") unless word.include?(letter_guessed)
-		@guessed_letters << letter_guessed
-	end
 
-	def win_game
-		if (word.chars - @guessed_letters) == 0 && remaining_tries > 0
-			game_over # write this method
-		end
-	end
+  belongs_to :user
 
-	def lose_game
-		if (word.chars - @guessed_letters) != 0 && remaining_tries == 0
-			game_over
-		end
-	end
+  def guess_letter(letter)
+    index = self.word.index(letter)
+    if index # What if there is the same letter more than once?
+      state = self.game_state.dup
+      state[index] = letter
+      self.update({game_state: state})
+    else
+      bad = self.bad_guesses
+      bad+=letter
+      self.update({bad_guesses: bad})
+    end
+    self.game_state
+  end
 
 end

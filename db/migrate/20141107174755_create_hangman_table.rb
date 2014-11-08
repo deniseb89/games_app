@@ -6,6 +6,8 @@ class CreateHangmanTable < ActiveRecord::Migration
   		t.integer :remaining_tries
   		t.integer :wins
   		t.integer :losses
+      t.string :bad_guesses
+      t.string :game_state
 
   		t.timestamps
   	end
