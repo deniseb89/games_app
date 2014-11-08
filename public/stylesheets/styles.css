@@ -13,13 +13,6 @@ h1 {
 	margin: 0 auto;
 }
 
-button {
-	height: 155px;
-	width: 155px;
-	border: none;
-	font-size: 70px;
-}
-
 .btn {
 	border: 1px solid black;
   width: 155px;
@@ -73,4 +66,8 @@ th {
 
 a {
 	text-decoration: none;
+}
+
+.game-state {
+	letter-spacing: 10px;
 }

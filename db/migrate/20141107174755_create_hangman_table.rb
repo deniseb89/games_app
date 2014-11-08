@@ -1,6 +1,6 @@
 class CreateHangmanTable < ActiveRecord::Migration
   def change
-  	create_table :hangmans do |t|
+  	create_table :hangmen do |t|
   		t.string :random_word
   		t.string :guessed_letters
   		t.integer :remaining_tries

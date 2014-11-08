@@ -1,12 +1,12 @@
-<h3 style="color: #<%= @hexs[1] %>"> Let's play some Hangman </h3>
+<h3 style="color: #<%= @hex[1] %>"> Let's play some Hangman </h3>
 
-<h2 class='game-state' style="color: #<%= @hexs[2] %>">	
+<h2 class='game-state' style="color: #<%= @hex[2] %>">	
 	<%= @word %>
 </h2>
 
 
 <% ('A'..'Z').each do |letter|%>
-	<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hexs[3] %>"><%= letter %></button>
+	<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>
 <% end %>
 
 
@@ -25,7 +25,7 @@
 
 	// 
 	function makeGuess(guessText){
-		var gameURL = '/hangmans/' + gameID;
+		var gameURL = '/hangman/' + gameID;
 
 		$.ajax({
 			method: "PATCH",
@@ -36,7 +36,7 @@
       	updateGameState(data.game_state);
 
       	if (data.complete){
-      		alert('That fun you just had... thou')
+      		alert('That fun you just had, though')
       	}
 			}
 		})
@@ -47,7 +47,7 @@
 	function startGame(){
 		$.ajax({
 			method: "POST",
-			url: '/hangmans',
+			url: '/hangman',
 			dataType: 'JSON',
 			success: function(data){
 				gameID = data.id;

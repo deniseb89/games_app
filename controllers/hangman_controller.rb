@@ -3,7 +3,8 @@ class HangmanController < ApplicationController
   get '/' do
     api_response = HTTParty.get("http://www.colourlovers.com/api/palettes/random")
     @title = api_response['palettes']['palette']['title']
-    @hexs = api_response['palettes']['palette']['colors']['hex']
+    @hex = api_response['palettes']['palette']['colors']['hex']
+    # @word = "lemur"
     erb :hangman
   end
 
@@ -16,7 +17,7 @@ class HangmanController < ApplicationController
       id: game.id,
       game_state: game.game_state,
       bad_guesses: game.bad_guesses,
-      complete: game.game_state == game.word
+      complete: game.game_state == game.random_word
     }.to_json
   end
 
@@ -24,7 +25,7 @@ class HangmanController < ApplicationController
     content_type :json
     word = File.read('./lib/words.txt').split("\n").sample
     game_state = word.gsub(/\w/i, '_')
-    game = Hangman.create({word: word, game_state: game_state})
+    game = Hangman.create({random_word: word, game_state: game_state})
     {
       id: game.id,
       game_state: game.game_state

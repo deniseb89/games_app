@@ -3,7 +3,7 @@ class Hangman < ActiveRecord::Base
   belongs_to :user
 
   def guess_letter(letter)
-    index = self.word.index(letter)
+    index = self.random_word.index(letter)
     if index # What if there is the same letter more than once?
       state = self.game_state.dup
       state[index] = letter
