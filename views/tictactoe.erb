@@ -1,25 +1,25 @@
-<h1>
+<h1 style="color: #<%= @hex[1] %>">
 	TIC-TAC-TOE
 </h1>
 
-<div id="message"></div>
+<div id="message" style="color: #<%= @hex[2] %>"></div>
 
-<table id="board">
+<table id="board" style="color: #<%= @hex[3] %>">
 	<tr>
-		<td id="btn1" onclick="nextMove(this);"></td>
-		<td id="btn2" onclick="nextMove(this);"></td>
-		<td id="btn3" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn1" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn2" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn3" onclick="nextMove(this);"></td>
 	</tr>
 	<tr>
-		<td id="btn4" onclick="nextMove(this);"></td>
-		<td id="btn5" onclick="nextMove(this);"></td>
-		<td id="btn6" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn4" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn5" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn6" onclick="nextMove(this);"></td>
 	</tr>
 	<tr>
-		<td id="btn7" onclick="nextMove(this);"></td>
-		<td id="btn8" onclick="nextMove(this);"></td>
-		<td id="btn9" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn7" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn8" onclick="nextMove(this);"></td>
+		<td class="btn" id="btn9" onclick="nextMove(this);"></td>
 	</tr>
 </table>
 
-<a href="javascript:startGame();">Reset</a>
+<a style="color: #<%= @hex[4] %>" href="javascript:startGame();">Reset</a>

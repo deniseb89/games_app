@@ -9,3 +9,4 @@ end
 map('/'){run ApplicationController}
 map('/api/hangman'){run HangmanController}
 map('/tictactoe'){run TicTacToeController}
+map('/sessions'){run SessionsController}

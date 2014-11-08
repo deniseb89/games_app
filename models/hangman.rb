@@ -18,4 +18,5 @@ class Hangman < ActiveRecord::Base
 			game_over
 		end
 	end
+
 end

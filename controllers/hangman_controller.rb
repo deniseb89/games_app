@@ -5,7 +5,6 @@ get '/' do
 		word = WordNik.find_word
 		letter_guessed = params[:letter_guessed]
 
-
 		{
 			guesses: letter_guessed
 		}.to_json

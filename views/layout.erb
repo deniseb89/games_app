@@ -8,7 +8,25 @@
 	<script src="/javascripts/jquery.js"></script>
 	<script src="/javascripts/scripts.js"></script>
 </head>
-<body>
+<body style="background-color: #<%= @hex[0] %>">
+	
+	<% if session[:current_user] %>
+
+		<form action="/sessions" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input class="button" type="submit" value="Log Out">
+		</form>
+
+	<% else %>
+		
+		<a class="button" href="/sessions/login">Log In</a>
+		<a class="button" href="/sessions/new">Sign Up</a>
+	
+	<% end %>
+
+	<a class="button" href="/">Home</a>
+
 	<%= yield %>
+
 </body>
 </html>
