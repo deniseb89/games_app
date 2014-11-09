@@ -9,21 +9,14 @@
 	<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>
 <% end %>
 
-
-
-
 <script>
 
-  // GLOBALE ID OF GAME
-	var gameID;  // Will be needed for url  which game
+	var gameID;
 
-	// Update letter on the screen
 	function updateGameState(text){
 		$('h2.game-state').text(text);
 	}
 
-
-	// 
 	function makeGuess(guessText){
 		var gameURL = '/hangman/' + gameID;
 
