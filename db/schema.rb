@@ -17,11 +17,8 @@ ActiveRecord::Schema.define(version: 20141107175503) do
   enable_extension "plpgsql"
 
   create_table "hangmen", force: true do |t|
+    t.integer  "user_id"
     t.string   "random_word"
-    t.string   "guessed_letters"
-    t.integer  "remaining_tries"
-    t.integer  "wins"
-    t.integer  "losses"
     t.string   "bad_guesses"
     t.string   "game_state"
     t.datetime "created_at"

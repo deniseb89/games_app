@@ -36,8 +36,14 @@
       	updateGameState(data.game_state);
 
       	if (data.complete){
-      		alert('That fun you just had, though')
+      		alert('That fun you just had... tho')
       	}
+
+      	if (data.bad_guesses.length > 5){
+					alert('you lost, mofo')
+					window.location = '/hangman';
+				}
+
 			}
 		})
 
@@ -60,14 +66,12 @@
 	$(function(){
 
 		startGame();
-
 		$('.letter-button').on('click', function(e){
-			
 			var guessText = $(this).data('letter');
 			makeGuess(guessText);
 			$(this).remove();
 		});	
-
+	
 	})
 
 	</script>
