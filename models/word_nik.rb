@@ -5,3 +5,5 @@ module WordNik
 		word = response_hash['word']
 	end
 end
+
+

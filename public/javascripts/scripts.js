@@ -18,15 +18,17 @@ function fades(){
 }
 
 function danceGames(){
-  $(".game-menu").on("mousenter, mouseleave", function(){
+  $(".game-menu").on("mousenter", function(){
     $(this).animate({
-      fontSize: "120%"
+      fontSize: "150%"
+    });
+  });
+  $(".game-menu").on("mouseleave", function(){
+    $(this).animate({
+      fontSize: "100%"
     });
   });
 }
-
-
-
 
 // ****TIC-TAC-TOE****
 
@@ -72,15 +74,46 @@ function switchTurn() {
 
 function checkForWinner(move) {
   var result = false;
-  if (checkRow(1, 2, 3, move) ||
-      checkRow(4, 5, 6, move) ||
-      checkRow(7, 8, 9, move) ||
-      checkRow(1, 4, 7, move) ||
-      checkRow(2, 5, 8, move) ||
-      checkRow(3, 6, 9, move) ||
-      checkRow(1, 5, 9, move) ||
-      checkRow(3, 5, 7, move)) {
+  if (checkRow(1, 2, 3, move)) {
     result = true;
+    $('#btn1').css("text-shadow", "1px 0px 20px white");
+    $('#btn2').css("text-shadow", "1px 0px 20px white");
+    $('#btn3').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(4, 5, 6, move)) {
+      result = true;
+    $('#btn4').css("text-shadow", "1px 0px 20px white");
+    $('#btn5').css("text-shadow", "1px 0px 20px white");
+    $('#btn6').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(7, 8, 9, move)) {
+      result = true;
+    $('#btn7').css("text-shadow", "1px 0px 20px white");
+    $('#btn8').css("text-shadow", "1px 0px 20px white");
+    $('#btn9').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(1, 4, 7, move)) {
+      result = true;
+    $('#btn1').css("text-shadow", "1px 0px 20px white");
+    $('#btn4').css("text-shadow", "1px 0px 20px white");
+    $('#btn7').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(2, 5, 8, move)) {
+      result = true;
+    $('#btn2').css("text-shadow", "1px 0px 20px white");
+    $('#btn5').css("text-shadow", "1px 0px 20px white");
+    $('#btn8').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(3, 6, 9, move)) {
+      result = true;
+    $('#btn3').css("text-shadow", "1px 0px 20px white");
+    $('#btn6').css("text-shadow", "1px 0px 20px white");
+    $('#btn9').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(1, 5, 9, move)) {
+    result = true;
+    $('#btn1').css("text-shadow", "1px 0px 20px white");
+    $('#btn5').css("text-shadow", "1px 0px 20px white");
+    $('#btn9').css("text-shadow", "1px 0px 20px white");
+  } else if (checkRow(3, 5, 7, move)) {
+    result = true;
+    $('#btn3').css("text-shadow", "1px 0px 20px white");
+    $('#btn5').css("text-shadow", "1px 0px 20px white");
+    $('#btn7').css("text-shadow", "1px 0px 20px white");
   }
   return result;
 }
@@ -100,11 +133,15 @@ function getBox(num) {
 }
 
 function clearBox(num) {
-  document.getElementById("btn"+num).innerHTML = "";
+  var button = document.getElementById("btn"+num);
+  button.innerHTML = "";
+  button.style.textShadow="none";
 }
 
 // ****HANGMAN****
 
+
+// ****LOAD PAGES****
 $(function(){
   hideElems();
   danceGames();
