@@ -11,12 +11,13 @@
 		<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>	
 	<% end %>
 </div>
+
 <div id="smileys">
-	<img src="/images/Face-Grin-120px.png" alt="" />
-	<img src="/images/Face-Grin-120px.png" alt="" />
-	<img src="/images/Face-Grin-120px.png" alt="" />
-	<img src="/images/Face-Grin-120px.png" alt="" />
-	<img src="/images/Face-Grin-120px.png" alt="" />
+	<img id="smiley1" src="/images/Face-Grin-120px.png" />
+	<img id="smiley2" src="/images/Face-Grin-120px.png" />
+	<img id="smiley3" src="/images/Face-Grin-120px.png" />
+	<img id="smiley4" src="/images/Face-Grin-120px.png" />
+	<img id="smiley5" src="/images/Face-Grin-120px.png" />
 </div>
 
 <script>
@@ -37,21 +38,19 @@
 			data: {guess: guessText},
 			success: function(data){
       	updateGameState(data.game_state);
+				$("#smiley"+(data.bad_guesses.length)).hide();
 
       	if (data.complete){
-      		alert('That fun you just had... tho')
+      		alert('CONGRATULATIONS! You won!')
       	}
 
-      	if (data.bad_guesses.length > 5){
-					alert('you lost, mofo')
+      	if (data.bad_guesses.length = 5){
+					alert('You lose. Try again.')
 					window.location = '/hangman';
 				}
-
 			}
 		})
-
 	}
-
 
 	function startGame(){
 		$.ajax({
