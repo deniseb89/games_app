@@ -1,14 +1,18 @@
 @media (max-width: 700px) {
-	body {
-		font-size: 100%;
-	}
 	.btn {
 		font-size: 35px;
 	}
 	.button {
-		font-size:18px;
+		font-size:28px;
 	}
 	th {
 		font-size: 75%;
+	}
+	.letter-button {
+		margin: 15px;
+	}
+
+	.alphabet {
+		width: 400px;
 	}
 }

@@ -1,8 +1,10 @@
-<h3 style="color: #<%= @hex[1] %>"> Let's play some Hangman </h3>
+<h1 style="color: #<%= @hex[1] %>">
+	Hangman
+</h1>
 
-<h2 class='game-state' style="color: #<%= @hex[2] %>">	
+<h1 class='game-state' style="color: #<%= @hex[2] %>">	
 	<%= @word %>
-</h2>
+</h1>
 
 <div class="alphabet">
 	<% ('A'..'Z').each do |letter|%>
