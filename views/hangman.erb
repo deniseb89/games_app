@@ -25,7 +25,7 @@
 	var gameID;
 
 	function updateGameState(text){
-		$('h2.game-state').text(text);
+		$('h1.game-state').text(text);
 	}
 
 	function makeGuess(guessText){
@@ -38,13 +38,14 @@
 			data: {guess: guessText},
 			success: function(data){
       	updateGameState(data.game_state);
-				$("#smiley"+(data.bad_guesses.length)).hide();
+				$("#smiley"+(data.bad_guesses.length)).fadeOut(1000);
 
       	if (data.complete){
       		alert('CONGRATULATIONS! You won!')
+					window.location = '/hangman';
       	}
 
-      	if (data.bad_guesses.length = 5){
+      	if (data.bad_guesses.length >= 5){
 					alert('You lose. Try again.')
 					window.location = '/hangman';
 				}
@@ -71,7 +72,7 @@
 		$('.letter-button').on('click', function(e){
 			var guessText = $(this).data('letter');
 			makeGuess(guessText);
-			$(this).remove();
+			$(this).attr("disabled","disabled");
 		});	
 	
 	})
