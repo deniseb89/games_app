@@ -1,33 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="/stylesheets/styles.css">
-	<link rel="stylesheet" media="(max-width: 700px)" href="/stylesheets/mobile.css">
-	<link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
-	<script src="/javascripts/jquery.js"></script>
-	<script src="/javascripts/scripts.js"></script>
+  <meta charset="UTF-8">
+  <title>Game Emporium</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" media="(max-width: 700px)" href="/stylesheets/mobile.css">
+  <link href='http://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/scripts.js"></script>
 </head>
 <body style="background-color: #<%= @hex[0] %>">
-	
-<!-- 	<% if session[:current_user] %>
 
-		<form action="/sessions" method="post">
-			<input type="hidden" name="_method" value="delete">
-			<input class="button" type="submit" value="Log Out">
-		</form>
+  <a class="button" href="/">Home</a>
 
-	<% else %>
-		
-		<a class="button" href="/sessions/login">Log In</a>
-		<a class="button" href="/sessions/new">Sign Up</a>
-	
-	<% end %>
- -->
-	<a class="button" href="/">Home</a>
-
-	<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

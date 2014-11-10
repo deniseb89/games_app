@@ -7,6 +7,7 @@ ActiveRecord::Base.establish_connection({
   adapter: 'postgresql',
   database: 'games_db'
 })
+
 namespace :db do
   desc "create games_db database"
   task :create_db do

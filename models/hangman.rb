@@ -1,7 +1,4 @@
 class Hangman < ActiveRecord::Base
-
-  belongs_to :user
-
   def guess_letter(letter)
   	if self.random_word.include?(letter)
   		letter_locations = []

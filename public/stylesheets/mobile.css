@@ -1,33 +1,34 @@
 @media (max-width: 700px) {
-	body {
-		font-size: 300%;
-	}
+  
+  body {
+    font-size: 300%;
+  }
 
-	.btn {
-		font-size: 35px;
-	}
-	.button {
-		font-size:28px;
-	}
-	th {
-		font-size: 75%;
-	}
-	.letter-button {
-		margin: 15px;
-	}
+  .btn {
+    font-size: 35px;
+  }
+  .button {
+    font-size:28px;
+  }
+  th {
+    font-size: 75%;
+  }
+  .letter-button {
+    margin: 15px;
+  }
 
-	.alphabet {
-		width: 400px;
-	}
+  .alphabet {
+    width: 400px;
+  }
 
-	#board {
-		height: 609px;
-		width: 609px;
-	}
+  #board {
+    height: 609px;
+    width: 609px;
+  }
 
-	.btn {
-		width: 200px;
-		height: 200px;
-	}
+  .btn {
+    width: 200px;
+    height: 200px;
+  }
 
 }

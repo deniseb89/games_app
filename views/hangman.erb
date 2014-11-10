@@ -1,80 +1,81 @@
 <h1 style="color: #<%= @hex[1] %>">
-	Hangman
+  Hangman
 </h1>
 
 <h1 class='game-state' style="color: #<%= @hex[2] %>">	
-	<%= @word %>
+  <%= @word %>
 </h1>
 
 <div class="alphabet">
-	<% ('A'..'Z').each do |letter|%>
-		<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>	
-	<% end %>
+  <% ('A'..'Z').each do |letter|%>
+    <button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>	
+  <% end %>
 </div>
 
 <div id="smileys">
-	<img id="smiley1" src="/images/Face-Grin-120px.png" />
-	<img id="smiley2" src="/images/Face-Grin-120px.png" />
-	<img id="smiley3" src="/images/Face-Grin-120px.png" />
-	<img id="smiley4" src="/images/Face-Grin-120px.png" />
-	<img id="smiley5" src="/images/Face-Grin-120px.png" />
+  <img id="smiley1" src="/images/Face-Grin-120px.png" />
+  <img id="smiley2" src="/images/Face-Grin-120px.png" />
+  <img id="smiley3" src="/images/Face-Grin-120px.png" />
+  <img id="smiley4" src="/images/Face-Grin-120px.png" />
+  <img id="smiley5" src="/images/Face-Grin-120px.png" />
 </div>
 
 <script>
 
-	var gameID;
+  var gameID;
 
-	function updateGameState(text){
-		$('h1.game-state').text(text);
-	}
+  function updateGameState(text){
+    $('h1.game-state').text(text);
+  }
 
-	function makeGuess(guessText){
-		var gameURL = '/hangman/' + gameID;
+  function makeGuess(guessText){
+    var gameURL = '/hangman/' + gameID;
 
-		$.ajax({
-			method: "PATCH",
-			url: gameURL,
-			dataType: 'JSON',
-			data: {guess: guessText},
-			success: function(data){
-      	updateGameState(data.game_state);
-				$("#smiley"+(data.bad_guesses.length)).fadeOut(1000);
+    $.ajax({
+      method: "PATCH",
+      url: gameURL,
+      dataType: 'JSON',
+      data: {guess: guessText},
+      success: function(data){
+        updateGameState(data.game_state);
+        $("#smiley"+(data.bad_guesses.length)).fadeOut(1000);
 
-      	if (data.complete){
-      		alert('CONGRATULATIONS! You won!')
-					window.location = '/hangman';
-      	}
+        if (data.complete){
+          alert('CONGRATULATIONS! You won!')
+          window.location = '/hangman';
+        }
 
-      	if (data.bad_guesses.length >= 5){
-					alert('You lose. Try again.')
-					window.location = '/hangman';
-				}
-			}
-		})
-	}
+        if (data.bad_guesses.length >= 5){
+          alert('You lose. Try again.')
+          window.location = '/hangman';
+        }
+      }
+    });
+  }
 
-	function startGame(){
-		$.ajax({
-			method: "POST",
-			url: '/hangman',
-			dataType: 'JSON',
-			success: function(data){
-				gameID = data.id;
-				updateGameState(data.game_state);
-			}
-		})
-	}
+  function startGame(){
+    $.ajax({
+      method: "POST",
+      url: '/hangman',
+      dataType: 'JSON',
+      success: function(data){
+        gameID = data.id;
+        updateGameState(data.game_state);
+      }
+    });
+  }
 
 
-	$(function(){
+  $(function(){
 
-		startGame();
-		$('.letter-button').on('click', function(e){
-			var guessText = $(this).data('letter');
-			makeGuess(guessText);
-			$(this).attr("disabled","disabled");
-		});	
+    startGame();
+    $('.letter-button').on('click', function(e){
+      var guessText = $(this).data('letter');
+      makeGuess(guessText);
+      $(this).attr("disabled","disabled");
+    });	
 	
-	})
+  });
 
-	</script>
+</script>
+	
