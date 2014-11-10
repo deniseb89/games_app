@@ -17,24 +17,9 @@ ActiveRecord::Schema.define(version: 20141107175503) do
   enable_extension "plpgsql"
 
   create_table "hangmen", force: true do |t|
-    t.integer  "user_id"
     t.string   "random_word"
     t.string   "bad_guesses", default: ""
     t.string   "game_state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tictactoes", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_hash",   null: false
-    t.integer  "hangman_score"
-    t.integer  "tictactoe_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
