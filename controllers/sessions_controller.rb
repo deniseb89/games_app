@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
 	get '/new' do
+    api_response = HTTParty.get("http://www.colourlovers.com/api/palettes/random")
+    @title = api_response['palettes']['palette']['title']
+    @hex = api_response['palettes']['palette']['colors']['hex']
 		erb :'sessions/new'
 	end
 
@@ -17,6 +20,9 @@ class SessionsController < ApplicationController
 	end
 
 	get '/login' do
+    api_response = HTTParty.get("http://www.colourlovers.com/api/palettes/random")
+    @title = api_response['palettes']['palette']['title']
+    @hex = api_response['palettes']['palette']['colors']['hex']
 		erb :'sessions/login'
 	end
 

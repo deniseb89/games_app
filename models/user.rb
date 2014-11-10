@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :hangmen
+
   include BCrypt
   def password
     @password ||= Password.new(self.password_hash)

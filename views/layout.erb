@@ -11,7 +11,7 @@
 </head>
 <body style="background-color: #<%= @hex[0] %>">
 	
-	<% if session[:current_user] %>
+<!-- 	<% if session[:current_user] %>
 
 		<form action="/sessions" method="post">
 			<input type="hidden" name="_method" value="delete">
@@ -24,7 +24,7 @@
 		<a class="button" href="/sessions/new">Sign Up</a>
 	
 	<% end %>
-
+ -->
 	<a class="button" href="/">Home</a>
 
 	<%= yield %>

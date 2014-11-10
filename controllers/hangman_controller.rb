@@ -1,6 +1,7 @@
 class HangmanController < ApplicationController
 
   get '/' do
+    # authenticate!
     api_response = HTTParty.get("http://www.colourlovers.com/api/palettes/random")
     @title = api_response['palettes']['palette']['title']
     @hex = api_response['palettes']['palette']['colors']['hex']

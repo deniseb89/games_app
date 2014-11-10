@@ -4,11 +4,11 @@
 	<%= @word %>
 </h2>
 
-
-<% ('A'..'Z').each do |letter|%>
-	<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>	
-<% end %>
-<br>
+<div class="alphabet">
+	<% ('A'..'Z').each do |letter|%>
+		<button class='letter-button' data-letter="<%= letter %>" style="color: #<%= @hex[3] %>"><%= letter %></button>	
+	<% end %>
+</div>
 <div id="smileys">
 	<img src="/images/Face-Grin-120px.png" alt="" />
 	<img src="/images/Face-Grin-120px.png" alt="" />

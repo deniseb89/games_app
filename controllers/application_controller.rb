@@ -1,4 +1,5 @@
 class ApplicationController < Sinatra::Base
+  helpers Sinatra::AuthenticationHelper
 
 	ActiveRecord::Base.establish_connection({
 	  adapter: 'postgresql',
